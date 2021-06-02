@@ -38,10 +38,15 @@ function dashboard() {
      const [display, setDisplay] = useState("hide")
      const [value, setValue] = useState(1)
      return (
-          <Flex h='100vh' flexDir='row' overflow='hiddin' maxW='2000px'>
+          <Flex
+               h={[null, null, "100vh"]}
+               flexDir={["column", "column", "row"]}
+               overflow='hiddin'
+               maxW='2000px'
+          >
                {/* Column 1 */}
                <Flex
-                    w='15%'
+                    w={["100%", "100%", "10%", "15%", "15%"]}
                     flexDir='column'
                     alignItems='center'
                     bg='#020202'
@@ -50,7 +55,7 @@ function dashboard() {
                     <Flex
                          flexDir='column'
                          justifyContent='space-between'
-                         h='100vh'
+                         h={[null, null, "100vh"]}
                     >
                          <Flex flexDir='column' as='nev'>
                               <Heading
@@ -63,54 +68,135 @@ function dashboard() {
                                    Rise
                               </Heading>
                               <Flex
-                                   flexDir='column'
-                                   align='flex-start'
+                                   flexDir={["row", "row", "column"]}
+                                   align={["center","center", "center", "flex-start"]}
                                    justifyContent='center'
                               >
-                                   <Flex className='sidebar-items'>
-                                        <Link>
+                                   <Flex
+                                        className='sidebar-items'
+                                        mr={[2, 6, 0, 0, 0]}
+                                   >
+                                        <Link
+                                             display={[
+                                                  "none",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Icon
                                                   as={FiHome}
                                                   fontSize='2xl'
                                                   className='active-icon'
                                              ></Icon>
                                         </Link>
-                                        <Link _hover={{ textDecor: "none" }}>
+                                        <Link
+                                             _hover={{ textDecor: "none" }}
+                                             display={[
+                                                  "flex",
+                                                  "flex",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Text className='active'>
                                                   Home
                                              </Text>
                                         </Link>
                                    </Flex>
-                                   <Flex className='sidebar-items'>
-                                        <Link>
+
+                                   <Flex
+                                        className='sidebar-items'
+                                        mr={[2, 6, 0, 0, 0]}
+                                   >
+                                        <Link
+                                             display={[
+                                                  "none",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Icon
                                                   as={FiHome}
                                                   fontSize='2xl'
                                              ></Icon>
                                         </Link>
-                                        <Link _hover={{ textDecor: "none" }}>
+                                        <Link
+                                             _hover={{ textDecor: "none" }}
+                                             display={[
+                                                  "flex",
+                                                  "flex",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Text>Home</Text>
                                         </Link>
                                    </Flex>
-                                   <Flex className='sidebar-items'>
-                                        <Link>
+                                   <Flex
+                                        className='sidebar-items'
+                                        mr={[2, 6, 0, 0, 0]}
+                                   >
+                                        <Link
+                                             display={[
+                                                  "none",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Icon
                                                   as={FiHome}
                                                   fontSize='2xl'
                                              ></Icon>
                                         </Link>
-                                        <Link _hover={{ textDecor: "none" }}>
+                                        <Link
+                                             _hover={{ textDecor: "none" }}
+                                             display={[
+                                                  "flex",
+                                                  "flex",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Text>Home</Text>
                                         </Link>
                                    </Flex>
-                                   <Flex className='sidebar-items'>
-                                        <Link>
+                                   <Flex
+                                        className='sidebar-items'
+                                        mr={[2, 6, 0, 0, 0]}
+                                   >
+                                        <Link
+                                             display={[
+                                                  "none",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Icon
                                                   as={FiHome}
                                                   fontSize='2xl'
                                              ></Icon>
                                         </Link>
-                                        <Link _hover={{ textDecor: "none" }}>
+                                        <Link
+                                             _hover={{ textDecor: "none" }}
+                                             display={[
+                                                  "flex",
+                                                  "flex",
+                                                  "none",
+                                                  "flex",
+                                                  "flex",
+                                             ]}
+                                        >
                                              <Text>Home</Text>
                                         </Link>
                                    </Flex>
@@ -132,7 +218,7 @@ function dashboard() {
                </Flex>
                {/* Column 2 */}
                <Flex
-                    w='55%'
+                    w={["100%", "100%", "60%", "60%", "55%"]}
                     p='3%'
                     flexDir='column'
                     overflow='auto'
@@ -452,7 +538,8 @@ function dashboard() {
                </Flex>
                {/* Column 3 */}
                <Flex
-                    w='35%'
+                    w={["100%", "100%", "35%"]}
+                    minW={[null, null, "300px", "300px", "400px"]}
                     bg='#f5f5f5'
                     p='3%'
                     flexDir='column'
