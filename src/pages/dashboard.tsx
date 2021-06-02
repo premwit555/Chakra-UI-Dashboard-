@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import {
-     Spacer,
      Heading,
      Link,
      Icon,
      Avatar,
-     Text,
      Table,
      Thead,
      Tr,
@@ -15,13 +13,30 @@ import {
      Flex,
      IconButton,
      Divider,
+     InputGroup,
+     InputLeftElement,
+     Input,
+     Box,
+     Text,
+     Button,
+     AvatarGroup,
 } from "@chakra-ui/react"
 
-import { FiCalendar, FiChevronDown, FiChevronUp, FiHome } from "react-icons/fi"
+import {
+     FiBell,
+     FiCalendar,
+     FiChevronDown,
+     FiChevronUp,
+     FiCreditCard,
+     FiHome,
+     FiPlus,
+     FiSearch,
+} from "react-icons/fi"
 import LineChart from "../components/LineChart"
 
 function dashboard() {
      const [display, setDisplay] = useState("hide")
+     const [value, setValue] = useState(1)
      return (
           <Flex h='100vh' flexDir='row' overflow='hiddin' maxW='2000px'>
                {/* Column 1 */}
@@ -115,7 +130,6 @@ function dashboard() {
                          </Flex>
                     </Flex>
                </Flex>
-
                {/* Column 2 */}
                <Flex
                     w='55%'
@@ -436,7 +450,6 @@ function dashboard() {
                          </Flex>
                     </Flex>
                </Flex>
-
                {/* Column 3 */}
                <Flex
                     w='35%'
@@ -444,7 +457,206 @@ function dashboard() {
                     p='3%'
                     flexDir='column'
                     overflow='auto'
-               ></Flex>
+               >
+                    <Flex alignContent='center'>
+                         <InputGroup
+                              bgColor='#fff'
+                              mb={4}
+                              border='#fff'
+                              borderRadius='10px'
+                              mr={2}
+                         >
+                              <InputLeftElement
+                                   pointerEvents='none'
+                                   children={<FiSearch color='gray' />}
+                              />
+                              <Input
+                                   type='number'
+                                   placeholder='Search'
+                                   borderRadius='10px'
+                              />
+                         </InputGroup>
+                         <IconButton
+                              icon={<FiBell />}
+                              fontSize='sm'
+                              bgColor='#fff'
+                              borderRadius='50%'
+                              p='10px'
+                         />
+                         <Flex
+                              w={30}
+                              h={25}
+                              bgColor='#b57295'
+                              borderRadius='50%'
+                              color='#fff'
+                              align='center'
+                              justify='center'
+                              ml='-3'
+                              mt='-2'
+                              zIndex='100'
+                              fontSize='sm'
+                         >
+                              2
+                         </Flex>
+                    </Flex>
+                    <Heading letterSpacing='tight '>MyCard</Heading>
+                    {value == 1 && (
+                         <Box
+                              borderRadius='25px'
+                              mt={4}
+                              w='100%'
+                              maxW='450px'
+                              h='200px'
+                              bgGradient='linear(to-t,#3271ce,#0b365a)'
+                         >
+                              <Flex
+                                   p='1em'
+                                   color='#fff'
+                                   flexDir='column'
+                                   h='100%'
+                                   justify='space-between'
+                              >
+                                   <Flex
+                                        justify='space-between'
+                                        w='100%'
+                                        align='flex-start'
+                                   >
+                                        <Flex flexDir='column'>
+                                             <Text color='gary'>
+                                                  Current Balance
+                                             </Text>
+                                             <Text
+                                                  fontWeight='bold'
+                                                  fontSize='sm'
+                                             >
+                                                  $2,000.00
+                                             </Text>
+                                        </Flex>
+                                        <Flex align='center'>
+                                             <Icon mr={2} as={FiCreditCard} />
+                                             <Text>Rise.</Text>
+                                        </Flex>
+                                   </Flex>
+                                   <Text mb={4}>**** **** **** 8956</Text>
+                                   <Flex
+                                        align='flex-end'
+                                        justify='space-between'
+                                   >
+                                        <Flex>
+                                             <Flex flexDir='column' mr={4}>
+                                                  <Text
+                                                       textTransform='uppercase'
+                                                       fontSize='xs'
+                                                  >
+                                                       {" "}
+                                                       Valid Thru
+                                                  </Text>
+                                                  <Text fontSize='lg'>
+                                                       {" "}
+                                                       09/24
+                                                  </Text>
+                                             </Flex>
+                                             <Flex flexDir='column'>
+                                                  <Text fontSize='xs'>
+                                                       {" "}
+                                                       CVV
+                                                  </Text>
+                                                  <Text fontSize='lg'>
+                                                       {" "}
+                                                       ***
+                                                  </Text>
+                                             </Flex>
+                                        </Flex>
+                                        <Icon as={FiCreditCard} />
+                                   </Flex>
+                              </Flex>
+                         </Box>
+                    )}
+                    <Flex justify='center' mt={2}>
+                         <Button
+                              bgColor={value == 1 ? "gary.600" : "gray.400"}
+                              onClick={() => setValue(1)}
+                              size='xs'
+                              mx={1}
+                         />
+                         <Button
+                              bgColor={value == 2 ? "gary.600" : "gray.400"}
+                              onClick={() => setValue(2)}
+                              size='xs'
+                              mx={1}
+                         />
+                         <Button
+                              bgColor={value == 3 ? "gary.600" : "gray.400"}
+                              onClick={() => setValue(3)}
+                              size='xs'
+                              mx={1}
+                         />
+                    </Flex>
+                    <Flex flexDir='column' my={4}>
+                         <Flex justify='space-between' mb={2}>
+                              <Text> Balanse</Text>
+                              <Text fontWeight='bold'>$150.00</Text>
+                         </Flex>
+
+                         <Flex justify='space-between' mb={2}>
+                              <Text> Credit Limit</Text>
+                              <Text fontWeight='bold'>$1500.00</Text>
+                         </Flex>
+                    </Flex>
+
+                    <Heading letterSpacing='tight' size='md' my={4}>
+                         Send money to
+                    </Heading>
+                    <Flex>
+                         <AvatarGroup size='md' max={3}>
+                              <Avatar src='' />
+                              <Avatar src='' />
+                              <Avatar src='' />
+                              <Avatar src='' />
+                              <Avatar src='' />
+                              <Avatar src='' />
+                         </AvatarGroup>
+                         <Avatar
+                              icon={<FiPlus />}
+                              ml={2}
+                              color='#fff'
+                              bgColor='gray.300'
+                         />
+                    </Flex>
+                    <Text color='gray' mt={10} mb={2}>
+                         {" "}
+                         Card Numbers
+                    </Text>
+                    <InputGroup>
+                         <InputLeftElement
+                              pointerEvents='none'
+                              children={<FiCreditCard />}
+                         />
+                         <Input
+                              type='number'
+                              placeholder='xxxx xxxx xxxx xxxx'
+                         />
+                    </InputGroup>
+                    <Text color='gray' mt={10} mb={2}>
+                         Sum
+                    </Text>
+                    <InputGroup>
+                         <InputLeftElement
+                              pointerEvents='none'
+                              children={<FiCreditCard />}
+                         />
+                         <Input type='number' placeholder='130.00' />
+                    </InputGroup>
+                    <Button
+                         mt={4}
+                         bgColor='blackAlpha.900'
+                         color='#fff'
+                         p={7}
+                         borderRadius={15}
+                    >
+                         Send Money
+                    </Button>
+               </Flex>
           </Flex>
      )
 }
