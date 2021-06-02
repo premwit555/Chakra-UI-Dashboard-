@@ -57,7 +57,7 @@ function dashboard() {
                          justifyContent='space-between'
                          h={[null, null, "100vh"]}
                     >
-                         <Flex flexDir='column' as='nev'>
+                         <Flex flexDir='column' As='nev'>
                               <Heading
                                    mt={50}
                                    mb={100}
@@ -69,7 +69,12 @@ function dashboard() {
                               </Heading>
                               <Flex
                                    flexDir={["row", "row", "column"]}
-                                   align={["center","center", "center", "flex-start"]}
+                                   align={[
+                                        "center",
+                                        "center",
+                                        "center",
+                                        "flex-start",
+                                   ]}
                                    justifyContent='center'
                               >
                                    <Flex
@@ -244,7 +249,10 @@ function dashboard() {
                               <Heading>Transaction</Heading>
                               <Text> Apr 2021</Text>
                          </Flex>
-                         <IconButton icon={<FiCalendar />} />
+                         <IconButton
+                              aria-label='FiCalendar'
+                              icon={<FiCalendar />}
+                         />
                     </Flex>
                     <Flex flexDir='column'>
                          <Flex overflow='auto'>
@@ -519,6 +527,7 @@ function dashboard() {
                          <Flex align='center'>
                               <Divider />
                               <IconButton
+                                   aria-label='show'
                                    icon={
                                         display == "show" ? (
                                              <FiChevronUp />
@@ -564,6 +573,7 @@ function dashboard() {
                               />
                          </InputGroup>
                          <IconButton
+                              aria-label='bell '
                               icon={<FiBell />}
                               fontSize='sm'
                               bgColor='#fff'
